@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-#  GI_Jack. Example options checker.
+#  Network_Jack. Example options checker.
 
 # SCRIPT DEFAULTS
 
