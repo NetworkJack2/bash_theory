@@ -57,8 +57,8 @@ check_sudo(){
   if [ ${UID} -eq 0 ];then
     ROOT_METHOD="uid"
    # TODO: FIX Polkit support
-   #elif [[ ! -z $DISPLAY  && $(tty) = /dev/pts/* ]];then
-   # ROOT_METHOD="pkexec"
+   elif [[ ! -z $DISPLAY  && $(tty) = /dev/pts/* ]];then
+    ROOT_METHOD="polkit"
    elif [ $(sudo whoami ) == "root" ];then
     ROOT_METHOD="sudo"
    else
