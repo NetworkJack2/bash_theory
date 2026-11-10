@@ -45,7 +45,9 @@
 BRIGHT=$(tput bold)
 NOCOLOR=$(tput sgr0) #reset to default colors
 
-# Regular Colors
+## Foreground
+
+# Regular Colors - 1 - 8
 RED=$(tput setaf 1)
 GREEN=$(tput setaf 2)
 ORANGE=$(tput setaf 3)
@@ -55,16 +57,37 @@ CYAN=$(tput setaf 6)
 LIGHT_GREY=$(tput setaf 7)
 DARK_GREY=$(tput setaf 8)
 
-# Bold Colors - Note they don't all dirrectly correspond to their regular
-# counter parts. They are also color codes 9-16 as well
-BRIGHT_RED=$(tput setaf 1;tput bold)
-BRIGHT_GREEN=$(tput setaf 2;tput bold)
-BRIGHT_YELLOW=$(tput setaf 3;tput bold)
-BRIGHT_BLUE=$(tput setaf 4;tput bold)
-BRIGHT_PINK=$(tput setaf 5;tput bold)
-BRIGHT_CYAN=$(tput setaf 6;tput bold)
-BRIGHT_WHITE=$(tput setaf 7;tput bold)
-MEDIUM_GREY=$(tput setaf 8;tput bold)
+# Bold Colors - 9 - 16
+BRIGHT_RED=$(tput setaf 9)
+BRIGHT_GREEN=$(tput setaf 10)
+BRIGHT_YELLOW=$(tput setaf 11)
+BRIGHT_BLUE=$(tput setaf 12)
+BRIGHT_PINK=$(tput setaf 13)
+BRIGHT_CYAN=$(tput setaf 14)
+BRIGHT_WHITE=$(tput setaf 15)
+MEDIUM_GREY=$(tput setaf 16)
+
+## Background
+
+#Regular Colors
+RED=$(tput setab 1)
+GREEN=$(tput setab 2)
+ORANGE=$(tput setab 3)
+BLUE=$(tput setab 4)
+PURPLE=$(tput setab 5)
+CYAN=$(tput setab 6)
+LIGHT_GREY=$(tput setab 7)
+DARK_GREY=$(tput setab 8)
+
+# Bold Colors - 9 - 16
+BRIGHT_RED=$(tput setab 9)
+BRIGHT_GREEN=$(tput setab 10)
+BRIGHT_YELLOW=$(tput setab 11)
+BRIGHT_BLUE=$(tput setab 12)
+BRIGHT_PINK=$(tput setab 13)
+BRIGHT_CYAN=$(tput setab 14)
+BRIGHT_WHITE=$(tput setab 15)
+MEDIUM_GREY=$(tput setab 16)
 
 # If you are ever in doubt about color codes, this function will show you how
 # they are obtained.
@@ -72,11 +95,18 @@ enumerate_colors(){
   tput sgr0 #reset to default color
   # there are sixteen colors by default, so using a for loop we can run through
   # then sequentially
+  echo "Foreground"
   for number in {1..16};do
     tput setaf $number
     echo "color number $number"
   done
+  tput sgr0
   
+  echo "Background"
+  for number in {1..16};do
+    tput setab $number
+    echo "color number $number"
+  done
   tput sgr0
 }
 
