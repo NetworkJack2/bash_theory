@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Console colors.
-# GPLv3 GI Jack
+# GPLv3 Network Jack
 
 # Console colors are important, as they can make important parts of data pop out
 # and differntiate the important data in a wall of text. Its very important
